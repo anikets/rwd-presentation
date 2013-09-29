@@ -44,6 +44,7 @@ var SampleApp = function() {
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
+        self.zcache['/assets/js/impress.js'] = fs.readFileSync('assets/js/impress.js');
     };
 
 
@@ -109,6 +110,10 @@ var SampleApp = function() {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
+
+        self.routes['/assets/js/impress.js'] = function( req, res ) {
+            res.send(self.cache_get( '/assets/js/impress.js' ));
+        }
     };
 
 
