@@ -26,7 +26,7 @@
       }
       .step.past,
       .step.future {
-        opacity: 0.3;
+        opacity: 0.2;
       }
       #cover h3  {
         font-weight: normal;
@@ -35,43 +35,40 @@
       .hidden { display: none; }
       .header {
         position: fixed;
-        bottom: 10px;
-        left: 10px;
-        opacity: 0.7;
+        bottom: 0px;
+        left: 10%;
         font-size: 0.8rem;
+        line-height: 3rem;
+        width: 100%;
       }
       nav {
         font-size: 1.5rem;
       }
-      nav > a {
-        float: left;
-        display: block;
-        color: #2c3e50;
-        font-weight: bold;
-      }
       nav > ul {
         list-style-type: none;
+        width: 100%;
+        padding: 0;
       }
       nav > ul > li {
         float: left;
-        border: solid 2px #2c3e50;
+        width: 20%;
+      }
+      nav > ul > li:last-child > a {
         border-right: 0;
-      }
-      nav > ul > li:first-child {
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-      }
-      nav > ul > li:last-child {
-        border-right: solid 2px #2c3e50;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
       }
       nav li a {
         /*transform: rotateX(90deg);*/
+        border-right: solid 1px #e74c3c;
+        border-bottom: 0;
         display: block;
-        display: none;
         padding: 0 15px;
-        color: #2c3e50;
+        color: #fff;
+        color: rgba(255,255,255,0.7);
+        text-align: center;
+        background-color: #c0392b;
+      }
+      nav li a:hover {
+        background-color: rgba(0,0,0,0.5);
       }
     </style>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
@@ -80,10 +77,9 @@
   <body>
     <div class='header'>
       <nav>
-        <a href='#'>+</a>
-        <ul class='hidden'>
+        <ul>
           <li><a href='#cover'>Cover</a></li>
-          <li><a href='#simple-media-query'>Media queries</a></li>
+          <li><a href='#media-query'>Media queries</a></li>
           <li><a href='#handling-images'>Handling images</a></li>
           <li><a href='#examples'>Examples</a></li>
         </ul>
@@ -96,30 +92,38 @@
 
 
     <div id='impress'>
-      <div class='step' data-x='-1500' data-y='-1500' id='cover'>
-        <h1>Responsive Web Design</h1>
+      <div class='step' data-x='-1500' data-y='-1500' data-z='0' id='cover'>
+        <h1>Ingredients of Responsive Web Design</h1>
         <h3>Aniket A. Suryavanshi<br />
           Front-end Developer at Idyllic Software</h3>
+          <i class='icon-facebook-sign'></i>
+        <div>
+          <a href="#"><i class='icon-facebook-sign'></i></a>
+          <a href="#"><i class='icon-twitter-sign'></i></a>
+          <a href="#"><i class='icon-linkedin-sign'></i></a>
+        </div>
       </div>
-      <div class='step text-left' data-x='0' data-y='-1500' id='about'>
-        <ul>
-          <li>One page, multiple devices</li>
-          <li>Good choice for lean startups</li>
-          <li>Device fragmentation</li>
-          <li>Better for Developers and Businesses</li>
-        </ul>
+      <div class='step text-left' data-x='0' data-y='-1500' data-z='1000' id='about'>
+        <h2>Intro</h2>
+        <p>Responsive Web Design (RWD) is the black magic that helps Web developers build apps which are cross device and cross platform. Gone are the days of fixed 960 pixel width layouts. Long back. Today, viewers access websites from a number of devices. Responsive Web Design (RWD) is the answer to target all these users with a single app.</p>
+        <strong>RWD apps support PC + Mac + Linux + Android + iOS + Windows Phone + Everything else with a Web browser.</strong>
+        <p>RWD offers an enormous benefit to lean startups by enabling them to target a large number of users, as compared to developing native apps whose reach is limited to the selected platform.</p>
+      </div>
+      <div class='step' data-x='1250' data-y='-1500' data-rotate='90' data-scale='3' id='media-query'>
+        <h2>What are media queries?</h2>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through CSS and used to write conditional CSS.</p>
       </div>
       <div class='step' data-x='1500' data-y='-1500' data-rotate='50' id='simple-media-query'>
         <h2>A simple media query</h2>
         <code>@media (min-width: 700px) { ... }</code>
       </div>
-      <div class='step' data-x='3000' data-y='-1500' data-rotate='50' data-scale='3' id='mediaqueries'>
-        <h2><a href="http://mediaqueri.es" target='blank'>mediaqueri.es</a></h2>
-        A great resource to stay abreast with the latest work done in RWD, and for some inspiration for your project.
-      </div>
-      <div class='step' data-x='4500' data-y='-1500' data-rotate='50' id='complex-media-query'>
+      <div class='step text-left' data-x='3000' data-y='-1500' data-rotate='50' id='complex-media-query'>
         <h2>A complex media query</h2>
         <code>@media (min-width: 700px), handheld and (orientation: landscape) { ... }</code>
+      </div>
+      <div class='step' data-x='4500' data-y='-1500' data-rotate='50' data-scale='3' id='mediaqueries'>
+        <h2><a href="http://mediaqueri.es" target='blank'>mediaqueri.es</a></h2>
+        A great resource to stay abreast with the latest work done in RWD, and for some inspiration for your project.
       </div>
       <div class='step text-left' data-x='6000' data-y='-1500' data-rotate='50' data-z='1000' id='handling-images'>
         <h2>Handling images</h2>
@@ -133,6 +137,7 @@
         </ul>
       </div>
       <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='50' id='picture'>
+        <h2>The <code>picture</code> element</h2>
 <pre>&lt;picture width="500"  height="500"&gt;
   &lt;source  media="(min-width: 1000px)" src="large.jpg"&gt;
   &lt;source  media="(min-width: 600px)" src="med.jpg"&gt;
@@ -140,6 +145,10 @@
   &lt;img  src="small.jpg" alt=""&gt;
   &lt;p&gt;Accessible  text&lt;/p&gt;
 &lt;/picture&gt;</pre>
+        <small>This is a work in progress and not currently supported in all browsers.</small>
+      </div>
+      <div class='step' data-x='8250' data-y='-1500' id='srcset'>
+        <h2>The <code>srcset</code> attribute</h2>
       </div>
       <div class='step' data-x='9000' data-y='-1500' data-rotate='50' data-scale='3' id='thank-you'>
         Thank you!
@@ -161,24 +170,24 @@
 
     <script>
       $( function( $ ) {
-        $( 'nav > a' ).click( function() {
-          if ( $( 'nav ul' ).hasClass( 'hidden' )) {
-            // Show menu
-            $( 'nav li a' ).css({
-              'display': 'block'
-            });
-            $( 'nav ul' ).removeClass( 'hidden' );
-            $( 'nav > a' ).text( '-' );
-          }
-          else {
-            // Hide menu
-            $( 'nav li a' ).css({
-              'display': 'none'
-            });
-            $( 'nav ul' ).addClass( 'hidden' );
-            $( 'nav > a' ).text( '+' );
-          }
-        });  // End 'nav > a' click.
+        // $( 'nav > a' ).click( function() {
+        //   if ( $( 'nav ul' ).hasClass( 'hidden' )) {
+        //     // Show menu
+        //     $( 'nav li a' ).css({
+        //       'display': 'block'
+        //     });
+        //     $( 'nav ul' ).removeClass( 'hidden' );
+        //     $( 'nav > a' ).text( '-' );
+        //   }
+        //   else {
+        //     // Hide menu
+        //     $( 'nav li a' ).css({
+        //       'display': 'none'
+        //     });
+        //     $( 'nav ul' ).addClass( 'hidden' );
+        //     $( 'nav > a' ).text( '+' );
+        //   }
+        // });  // End 'nav > a' click.
       });
     </script>
   </body>
