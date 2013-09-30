@@ -19,14 +19,14 @@
         text-decoration: none;
       }
       .step {
-        width: 950px;
+        width: 1000px;
         padding: 20px;
         transition: opacity 0.3s ease-out;
         text-align: center;
       }
       .step.past,
       .step.future {
-        opacity: 0.2;
+        opacity: 0.1;
       }
       #cover h3  {
         font-weight: normal;
@@ -105,21 +105,27 @@
       </div>
       <div class='step text-left' data-x='0' data-y='-1500' data-z='1000' id='about'>
         <h2>Intro</h2>
-        <p>Responsive Web Design (RWD) is the black magic that helps Web developers build apps which are cross device and cross platform. Gone are the days of fixed 960 pixel width layouts. Long back. Today, viewers access websites from a number of devices. Responsive Web Design (RWD) is the answer to target all these users with a single app.</p>
-        <strong>RWD apps support PC + Mac + Linux + Android + iOS + Windows Phone + Everything else with a Web browser.</strong>
+        <p>Responsive Web Design (RWD) helps Web developers build apps which are cross device and cross platform compatible. Gone are the days of fixed 960 pixel width layouts. Long back. Today, Web Apps get accessed from a huge variety of devices. They differ in resolution. One thing common to all of them is the Web browser. Responsive Web Design (RWD) is the answer to target all these users with a single app which can be accessed through the browser.</p>
+        <strong>RWD apps work on PC + Mac + Linux + Android + iOS + Windows Phone + everything else with a Web browser.</strong>
         <p>RWD offers an enormous benefit to lean startups by enabling them to target a large number of users, as compared to developing native apps whose reach is limited to the selected platform.</p>
       </div>
       <div class='step' data-x='1250' data-y='-1500' data-rotate='90' data-scale='3' id='media-query'>
         <h2>What are media queries?</h2>
-        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through CSS and used to write conditional CSS.</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through these queries and used to write apply CSS rules conditionally.</p>
       </div>
       <div class='step' data-x='1500' data-y='-1500' data-rotate='50' id='simple-media-query'>
         <h2>A simple media query</h2>
         <code>@media (min-width: 700px) { ... }</code>
+        <p>This statement can be used in external CSS files, <code>style</code> tags in HTML files and in the <code>link</code> tag to used for including external stylesheets in HTML files.</p>
       </div>
       <div class='step text-left' data-x='3000' data-y='-1500' data-rotate='50' id='complex-media-query'>
         <h2>A complex media query</h2>
-        <code>@media (min-width: 700px), handheld and (orientation: landscape) { ... }</code>
+<pre><code>@media (min-width: 700px), handheld and (orientation: landscape) {
+  /* CSS rules here will be applied when:
+     1. The viewport is 700px or wider.
+     2. The device is a handheld and it's orientation
+        is in landscape mode. */
+}</code></pre>
       </div>
       <div class='step' data-x='4500' data-y='-1500' data-rotate='50' data-scale='3' id='mediaqueries'>
         <h2><a href="http://mediaqueri.es" target='blank'>mediaqueri.es</a></h2>
@@ -128,12 +134,12 @@
       <div class='step text-left' data-x='6000' data-y='-1500' data-rotate='50' data-z='1000' id='handling-images'>
         <h2>Handling images</h2>
         <ul>
-          <li>picture</li>
-          <li>srcset</li>
-          <li>WebP</li>
-          <li>SVG</li>
-          <li>Font Icons</li>
-          <li>Progressive JPEGs</li>
+          <li><strong>picture</strong> element specifies a way to load images according to viewport width.</li>
+          <li><strong>srcset</strong> attribute also provides functionality similar to <code>picture</code> element.</li>
+          <li><strong>WebP</strong> is a new image format from Google. File sizes are smaller compared to PNG and JPG. But it's not supported in Firefox currently.</li>
+          <li><strong>SVG</strong> is useful for stuff like diagrams. They are resolution independent, and won't appear grainy or pixelated at any scale.</li>
+          <li><strong>Font Icons</strong> are also resolution independent and allow styling of icons with CSS.</li>
+          <li><strong>Progressive JPEG</strong> images appear blurred at the beginning and get sharper as the image gets loaded. They provide better user experience as compared to JPGs that get loaded from to bottom.</li>
         </ul>
       </div>
       <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='50' id='picture'>
@@ -155,7 +161,7 @@
       </div>
       <div class='step' data-x = '-1500' data-y='-3000' data-scale='3' id='caution'>
         <h2>Word of caution</h2>
-        RWD is not for everyone! Especially not for big companies. Facebook and Linkedin regretted preferring RWD over native mobile apps. 
+        <p>RWD is not a replacement for native mobile apps currently. Facebook and Linkedin regretted preferring RWD over native mobile apps. Browser based apps are not as high performant as native apps, and do not get access to device's native APIs. But if your app doesn't need them, well, who cares! Marginal performance is the tradeoff made to target large user base with RWD.</p>
       </div>
       <div class='step' data-x = '0' data-y='-3000' data-scale='3' id='examples'>
         <h2>Examples</h2>
