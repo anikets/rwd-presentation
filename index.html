@@ -7,6 +7,9 @@
     <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
     <link href='/assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
     <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
       body {
         font-family: Handlee, Ubuntu, Verdana, Arial, sans-serif;
         font-size:30px;
@@ -27,63 +30,75 @@
       .step.past,
       .step.future {
         opacity: 0.1;
+        z-index: 3;
       }
       #cover h3  {
         font-weight: normal;
       }
       .text-left { text-align: left; }
       .hidden { display: none; }
-      .header {
+      .aside-left, .aside-bottom {
         position: fixed;
-        bottom: 0px;
-        left: 10%;
-        font-size: 0.8rem;
-        line-height: 3rem;
-        width: 100%;
+        background-color: #444;
+        color: #eee;
+        transition: all 0.2s ease-out;
+        z-index: 4;
       }
-      nav {
-        font-size: 1.5rem;
+      .aside-left {
+        width: 200px;
+        top: 0;
+        left: -200px;
+        height: 100%;
       }
-      nav > ul {
+      .aside-left ul {
         list-style-type: none;
-        width: 100%;
         padding: 0;
       }
-      nav > ul > li {
-        float: left;
-        width: 20%;
-      }
-      nav > ul > li:last-child > a {
-        border-right: 0;
-      }
-      nav li a {
-        /*transform: rotateX(90deg);*/
-        border-right: solid 1px #e74c3c;
-        border-bottom: 0;
+      .aside-left a {
+        color: #eee;
         display: block;
-        padding: 0 15px;
-        color: #fff;
-        color: rgba(255,255,255,0.7);
-        text-align: center;
-        background-color: #c0392b;
+        padding: 10px 0 10px 10px;
+        font-size: 20px;
+        border-bottom: solid 1px #333;
       }
-      nav li a:hover {
-        background-color: rgba(0,0,0,0.5);
+      .aside-left > a {
+        background-color: rgba(0,0,0,0.2);
+        position: absolute;
+        right: -30px;
+        top: 0;
+        width: 30px;
+        height: 40px;
+        font-size: 30px;
+        padding: 0;
+        border: 0;
+        text-align: center;
+        line-height: 40px;
+      }
+      .aside-bottom {
+        text-align: right;
+        bottom: -50px;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 17px;
+        padding-right: 30px;
       }
     </style>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
   </head>
 
   <body>
-    <div class='header'>
-      <nav>
-        <ul>
-          <li><a href='#cover'>Cover</a></li>
-          <li><a href='#media-query'>Media queries</a></li>
-          <li><a href='#handling-images'>Handling images</a></li>
-          <li><a href='#examples'>Examples</a></li>
-        </ul>
-      </nav>
+    <div class='aside-left'>
+      <a href="#">+</a>
+      <ul>
+        <li><a href="#cover">Cover</a></li>
+        <li><a href="#media-query">Media queries</a></li>
+        <li><a href="#handling-images">Images</a></li>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </div>
+    <div class='aside-bottom'>
+      Aniket A. Suryavanshi
     </div>
     <!-- <div class="fallback-message">
         <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
@@ -103,21 +118,25 @@
           <a href="#"><i class='icon-linkedin-sign'></i></a>
         </div>
       </div>
-      <div class='step text-left' data-x='0' data-y='-1500' data-z='1000' id='about'>
+
+      <div class='step text-left' data-x='0' data-y='-1500' data-z='500' id='about'>
         <h2>Intro</h2>
         <p>Responsive Web Design (RWD) helps Web developers build apps which are cross device and cross platform compatible. Gone are the days of fixed 960 pixel width layouts. Long back. Today, Web Apps get accessed from a huge variety of devices. They differ in resolution. One thing common to all of them is the Web browser. Responsive Web Design (RWD) is the answer to target all these users with a single app which can be accessed through the browser.</p>
         <strong>RWD apps work on PC + Mac + Linux + Android + iOS + Windows Phone + everything else with a Web browser.</strong>
         <p>RWD offers an enormous benefit to lean startups by enabling them to target a large number of users, as compared to developing native apps whose reach is limited to the selected platform.</p>
       </div>
+
       <div class='step' data-x='1250' data-y='-1500' data-rotate='90' data-scale='3' id='media-query'>
         <h2>What are media queries?</h2>
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through these queries and used to write apply CSS rules conditionally.</p>
       </div>
+
       <div class='step' data-x='1500' data-y='-1500' data-rotate='50' id='simple-media-query'>
         <h2>A simple media query</h2>
         <code>@media (min-width: 700px) { ... }</code>
         <p>This statement can be used in external CSS files, <code>style</code> tags in HTML files and in the <code>link</code> tag to used for including external stylesheets in HTML files.</p>
       </div>
+
       <div class='step text-left' data-x='3000' data-y='-1500' data-rotate='50' id='complex-media-query'>
         <h2>A complex media query</h2>
 <pre><code>@media (min-width: 700px), handheld and (orientation: landscape) {
@@ -127,10 +146,12 @@
         is in landscape mode. */
 }</code></pre>
       </div>
+
       <div class='step' data-x='4500' data-y='-1500' data-rotate='50' data-scale='3' id='mediaqueries'>
         <h2><a href="http://mediaqueri.es" target='blank'>mediaqueri.es</a></h2>
         A great resource to stay abreast with the latest work done in RWD, and for some inspiration for your project.
       </div>
+
       <div class='step text-left' data-x='6000' data-y='-1500' data-rotate='50' data-z='1000' id='handling-images'>
         <h2>Handling images</h2>
         <ul>
@@ -142,6 +163,7 @@
           <li><strong>Progressive JPEG</strong> images appear blurred at the beginning and get sharper as the image gets loaded. They provide better user experience as compared to JPGs that get loaded from to bottom.</li>
         </ul>
       </div>
+
       <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='50' id='picture'>
         <h2>The <code>picture</code> element</h2>
 <pre>&lt;picture width="500"  height="500"&gt;
@@ -153,16 +175,20 @@
 &lt;/picture&gt;</pre>
         <small>This is a work in progress and not currently supported in all browsers.</small>
       </div>
+
       <div class='step' data-x='8250' data-y='-1500' id='srcset'>
         <h2>The <code>srcset</code> attribute</h2>
       </div>
+
       <div class='step' data-x='9000' data-y='-1500' data-rotate='50' data-scale='3' id='thank-you'>
         Thank you!
       </div>
+
       <div class='step' data-x = '-1500' data-y='-3000' data-scale='3' id='caution'>
         <h2>Word of caution</h2>
         <p>RWD is not a replacement for native mobile apps currently. Facebook and Linkedin regretted preferring RWD over native mobile apps. Browser based apps are not as high performant as native apps, and do not get access to device's native APIs. But if your app doesn't need them, well, who cares! Marginal performance is the tradeoff made to target large user base with RWD.</p>
       </div>
+
       <div class='step' data-x = '0' data-y='-3000' data-scale='3' id='examples'>
         <h2>Examples</h2>
         <a href="http://cdpn.io/xpsFD" target='blank'>A simple responsive grid.</a>
@@ -194,6 +220,24 @@
         //     $( 'nav > a' ).text( '+' );
         //   }
         // });  // End 'nav > a' click.
+
+        $( '.aside-left > a' ).click( function() {
+          // Code for menu handle.
+          if ( $( '.aside-left' ).hasClass( 'shown' )) {
+            // Hide asides.
+            $( '.aside-left' ).css( 'left', '-200px' );
+            $( '.aside-bottom' ).css( 'bottom', '-50px' );
+            $( '.aside-left' ).removeClass( 'shown' );
+            $( this ).text( '+' );
+          }
+          else {
+            // Show asides.
+            $( '.aside-left' ).css( 'left', '0' );
+            $( '.aside-bottom' ).css( 'bottom', '0' );
+            $( '.aside-left' ).addClass( 'shown' );
+            $( this ).text( '-' );
+          }
+        });
       });
     </script>
   </body>
