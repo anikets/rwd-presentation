@@ -129,28 +129,37 @@
         </div> -->
       </div>
 
+      <div class='step text-left' data-x='-750' data-y='-1500' data-z='250' id='audience'>
+        <h2>Audience</h2>
+        <p>This document will explain you the basics of RWD which will help you create responsive pages, or use frameworks like Bootstrap more effectively.</p>
+      </div>
+
       <div class='step text-left' data-x='0' data-y='-1500' data-z='500' id='about'>
         <h2>Intro</h2>
-        <p>Responsive Web Design (RWD) helps Web developers build apps which are cross device and cross platform compatible. Gone are the days of fixed 960 pixel width layouts. Long back. Today, Web Apps get accessed from a huge variety of devices. They differ in resolution. One thing common to all of them is the Web browser. Responsive Web Design (RWD) is the answer to target all these users with a single app which can be accessed through the browser.</p>
+        <p>Responsive Web Design (RWD) helps Web developers build apps which are cross device and cross platform compatible. Gone are the days of fixed 960 pixel width layouts. Long back. Today, Web Apps get accessed from a huge variety of devices. They differ in display resolution. One thing common to all of them is the Web browser. Responsive Web Design (RWD) is the answer to target all these users with a single app which can be accessed through the browser.</p>
         <strong>RWD apps work on PC + Mac + Linux + Android + iOS + Windows Phone + everything else with a Web browser.</strong>
         <p>RWD offers an enormous benefit to lean startups by enabling them to target a large number of users, as compared to developing native apps whose reach is limited to the selected platform.</p>
       </div>
 
       <div class='step' data-x='1250' data-y='-1500' data-rotate='90' data-scale='3' id='media-query'>
         <h2>What are media queries?</h2>
-        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through these queries and used to write apply CSS rules conditionally.</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through these queries and used to apply CSS rules conditionally.</p>
       </div>
 
       <div class='step' data-x='1500' data-y='-1500' data-rotate='50' id='simple-media-query'>
         <h2>A simple media query</h2>
-        <code>@media (min-width: 700px) { ... }</code>
-        <p>This statement can be used in external CSS files, <code>style</code> tags in HTML files and in the <code>link</code> tag to used for including external stylesheets in HTML files.</p>
+<pre><code>@media (min-width: 700px) {
+  p { color: red; }
+}</code></pre>
+        <p>This media query will make the <code>p</code> element's colour red when the viewport is 700px or wider than that.</p>
+        <p>This statement can be used in external CSS files, <code>style</code> tags in HTML files and in the <code>link</code> tag used for including external stylesheets in HTML files.</p>
       </div>
 
       <div class='step text-left' data-x='3000' data-y='-1500' data-rotate='50' id='complex-media-query'>
         <h2>A complex media query</h2>
 <pre><code>@media (min-width: 700px), handheld and (orientation: landscape) {
-  /* CSS rules here will be applied when:
+  /* CSS rules here will be applied when either or
+     both these conditions are true:
      1. The viewport is 700px or wider.
      2. The device is a handheld and it's orientation
         is in landscape mode. */
@@ -170,12 +179,12 @@
           <li><strong>WebP</strong> is a new image format from Google. File sizes are smaller compared to PNG and JPG. But it's not supported in Firefox currently.</li>
           <li><strong>SVG</strong> is useful for stuff like diagrams. They are resolution independent, and won't appear grainy or pixelated at any scale.</li>
           <li><strong>Font Icons</strong> are also resolution independent and allow styling of icons with CSS.</li>
-          <li><strong>Progressive JPEG</strong> images appear blurred at the beginning and get sharper as the image gets loaded. They provide better user experience as compared to JPGs that get loaded from to bottom.</li>
+          <li><strong>Progressive JPEG</strong> images appear blurred at the beginning and get sharper as the image gets loaded. They provide better user experience as compared to JPGs that get loaded from top to bottom.</li>
         </ul>
       </div>
 
       <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='50' id='picture'>
-        <h2>The <code>picture</code> element</h2>
+        <h2><code>picture</code> element's syntax</h2>
 <pre>&lt;picture width="500"  height="500"&gt;
   &lt;source  media="(min-width: 1000px)" src="large.jpg"&gt;
   &lt;source  media="(min-width: 600px)" src="med.jpg"&gt;
@@ -188,6 +197,7 @@
 
       <div class='step' data-x='8250' data-y='-1500' id='srcset'>
         <h2>The <code>srcset</code> attribute</h2>
+        <small>This is a work in progress and not currently supported in all browsers.</small>
       </div>
 
       <div class='step' data-x='9000' data-y='-1500' data-rotate='50' data-scale='3' id='thank-you'>
