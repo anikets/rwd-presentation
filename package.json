@@ -1,17 +1,19 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Ingredients-of-Responsive-Web-Development",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "Presentation on Responsive Web Development",
   "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
+    "rwd",
+    "responsive web design",
+    "css",
+    "media queries",
+    "responsive images",
+    "font icons"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://www.openshift.com/"
+    "name": "Aniket A. Suryavanshi",
+    "email": "aniket.a.s@gmail.com",
+    "url":  "http://anikets.bitbucket.org/"
   },
   "homepage": "http://www.openshift.com/",
   "repository": {
