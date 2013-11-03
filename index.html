@@ -108,6 +108,18 @@
         font-size: 20px;
         line-height: 25px;
       }
+      .hint {
+        position: fixed;
+        bottom: 30px;
+        left: 0;
+        background: #444;
+        background: rgba(0,0,0,0.8);
+        color: #eee;
+        font-size: 1.2rem;
+        line-height: 1.3rem;
+        width: 100%;
+        text-align: center;
+      }
     </style>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
   </head>
@@ -147,8 +159,8 @@
         <div class='social-profile-links'>
           <a href="http://bit.ly/aniket1" target='blank'><i class='fontawesome-facebook'></i></a>
           <a href="http://bit.ly/44Sur" target='blank'><i class='fontawesome-twitter'></i></a>
-          <a href="http://bit.ly/anikets" target='blank'><i class='fontawesome-linkedin'></i></a>
-          <a href="http://bit.ly/" target='blank'><i class='fontawesome-github'></i></a>
+          <a href="http://linkd.in/anikets" target='blank'><i class='fontawesome-linkedin'></i></a>
+          <a href="http://bit.ly/GithubAcc" target='blank'><i class='fontawesome-github'></i></a>
         </div>
       </div>
 
@@ -164,12 +176,12 @@
         <p>RWD offers an enormous benefit to lean startups by enabling them to target a large number of users, as compared to developing native apps whose reach is limited to the selected platform.</p>
       </div>
 
-      <div class='step' data-x='1250' data-y='-1500' data-z='750' data-rotate='90' data-scale='3' id='media-query'>
+      <div class='step' data-x='750' data-y='-1500' data-z='750' data-rotate='90' id='media-query'>
         <h2>What are media queries?</h2>
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through these queries and used to apply CSS rules conditionally.</p>
       </div>
 
-      <div class='step' data-x='2000' data-y='-1500' data-z='750' id='simple-media-query'>
+      <div class='step' data-x='1500' data-y='-1500' data-z='750' data-rotate='180' id='simple-media-query'>
         <h2>A simple media query</h2>
 <pre><code>@media (min-width: 700px) {
   p { color: red; }
@@ -178,7 +190,7 @@
         <p>This statement can be used in external CSS files, <code>style</code> tags in HTML files and in the <code>link</code> tag used for including external stylesheets in HTML files.</p>
       </div>
 
-      <div class='step text-left' data-x='3000' data-y='-1500' data-rotate='50' id='complex-media-query'>
+      <div class='step text-left' data-x='2250' data-y='-750' data-z='1000' id='complex-media-query'>
         <h2>A complex media query</h2>
 <pre><code>@media (min-width: 700px), handheld and (orientation: landscape) {
   /* CSS rules here will be applied when either or
@@ -189,12 +201,12 @@
 }</code></pre>
       </div>
 
-      <div class='step' data-x='4500' data-y='-1500' data-rotate='50' data-scale='3' id='mediaqueries'>
+      <div class='step' data-x='3500' data-y='-1500' data-scale='3' id='mediaqueries'>
         <h2><a href="http://mediaqueri.es" target='blank'>mediaqueri.es</a></h2>
         A great resource to stay abreast with the latest work done in RWD, and for some inspiration for your project.
       </div>
 
-      <div class='step text-left' data-x='6000' data-y='-1500' data-rotate='50' id='handling-images'>
+      <div class='step text-left' data-x='5000' data-y='-1500' data-rotate='50' id='handling-images'>
         <h2>Handling images</h2>
         <ul>
           <li><strong>picture</strong> element specifies a way to load images according to viewport width.</li>
@@ -206,7 +218,7 @@
         </ul>
       </div>
 
-      <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='100' id='picture'>
+      <div class='step text-left' data-x='6500' data-y='-1500' data-rotate='100' id='picture'>
         <h2><code>picture</code> element's syntax</h2>
 <pre>&lt;picture width="500"  height="500"&gt;
   &lt;source  media="(min-width: 1000px)" src="large.jpg"&gt;
@@ -218,7 +230,7 @@
         <small>This is a work in progress and not currently supported in all browsers.</small>
       </div>
 
-      <div class='step text-left' data-x='8250' data-y='-1500' data-rotate='150' id='srcset'>
+      <div class='step text-left' data-x='8000' data-y='-1500' id='srcset'>
         <h2>The <a href='http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/' target='blank'><code>srcset</code></a> attribute</h2>
 <pre><code class='small-font'>&lt;h1&gt;&lt;img alt="The Breakfast Combo"
   src="banner.jpeg"
@@ -233,13 +245,17 @@
       </div>
 
       <div class='step' data-x = '0' data-y='-3000' data-scale='3' id='examples'>
-        <h2>Examples</h2>
+        <h2>Example</h2>
         <a href="http://cdpn.io/xpsFD" target='blank'>A simple responsive grid.</a>
       </div>
 
       <div class='step' data-x='0' data-y='-1500' data-rotate='50' data-scale='3' id='thank-you'>
         Thank you!
       </div>
+    </div>
+
+    <div class="hint">
+      <p>Use a spacebar or arrow keys to navigate</p>
     </div>
 
 
@@ -267,6 +283,11 @@
             $( this ).text( '-' );
           }
         });
+
+        setTimeout( function() {
+          $('.hint').fadeOut();
+        }, 4000 );
+
       });
     </script>
   </body>
