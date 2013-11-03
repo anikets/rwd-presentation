@@ -15,10 +15,10 @@
     "email": "aniket.a.s@gmail.com",
     "url":  "http://anikets.bitbucket.org/"
   },
-  "homepage": "http://anikets.bitbucket.org/",
+  "homepage": "http://www.openshift.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/anikets/rwd-presentation"
+    "url": "https://gitub.com/openshift/origin-server"
   },
 
   "engines": {
