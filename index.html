@@ -4,11 +4,16 @@
     <meta charset='utf-8' />
     <meta name="viewport" content="width=1024" />
     <title>RWD Presentation</title>
-    <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500' rel='stylesheet' type='text/css'>
-    <!-- <link href='/assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'> -->
     <style type="text/css">
+      @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+      /* fontawesome */
+      [class*="fontawesome-"]:before {
+        font-family: 'FontAwesome', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+      }
       *,
       *:after,
       *::before {
@@ -17,7 +22,6 @@
         box-sizing: border-box;
       }
       body {
-        font-family: 'Noticia Text', Georgia, sans-serif;
         font-family: 'Maven Pro', Ubuntu, sans-serif;
         font-size:30px;
         box-sizing: border-box;
@@ -25,7 +29,8 @@
         color: #fff;
       }
       h1, h2, h3, h4, h5, h6 {
-        font-family: Handlee, Ubuntu, Verdana, Arial, sans-serif;
+        font-family: 'Permanent Marker', Handlee, Ubuntu, Verdana, Arial, sans-serif;
+        font-weight: normal;
       }
       a {
         color: #f1c40f;
@@ -36,6 +41,9 @@
         padding: 20px;
         transition: opacity 0.3s ease-out;
         text-align: center;
+      }
+      .step.present {
+        z-index: 4;
       }
       .step.past,
       .step.future {
@@ -93,6 +101,13 @@
         font-size: 17px;
         padding-right: 30px;
       }
+      code, pre {
+        text-align: left;
+      }
+      .small-font {
+        font-size: 20px;
+        line-height: 25px;
+      }
     </style>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
   </head>
@@ -118,15 +133,23 @@
 
     <div id='impress'>
       <div class='step' data-x='-1500' data-y='-1500' data-z='0' id='cover'>
-        <h1>Ingredients of Responsive Web Design</h1>
+        <h1>Ingredients of<br />
+          Responsive Web Design</h1>
+        <h2>
+          Build for Every Device<br />
+          <i class='fontawesome-desktop'></i>
+          <i class='fontawesome-laptop'></i>
+          <i class='fontawesome-tablet'></i>
+          <i class='fontawesome-mobile-phone'></i>
+        </h2>
         <strong>Aniket A. Suryavanshi<br />
           Front-end Developer at Idyllic Software</strong>
-          <!-- <i class='icon-facebook-sign'></i>
-        <div>
-          <a href="#"><i class='icon-facebook-sign'></i></a>
-          <a href="#"><i class='icon-twitter-sign'></i></a>
-          <a href="#"><i class='icon-linkedin-sign'></i></a>
-        </div> -->
+        <div class='social-profile-links'>
+          <a href="http://bit.ly/aniket1" target='blank'><i class='fontawesome-facebook'></i></a>
+          <a href="http://bit.ly/44Sur" target='blank'><i class='fontawesome-twitter'></i></a>
+          <a href="http://bit.ly/anikets" target='blank'><i class='fontawesome-linkedin'></i></a>
+          <a href="http://bit.ly/" target='blank'><i class='fontawesome-github'></i></a>
+        </div>
       </div>
 
       <div class='step text-left' data-x='-750' data-y='-1500' data-z='250' id='audience'>
@@ -141,12 +164,12 @@
         <p>RWD offers an enormous benefit to lean startups by enabling them to target a large number of users, as compared to developing native apps whose reach is limited to the selected platform.</p>
       </div>
 
-      <div class='step' data-x='1250' data-y='-1500' data-rotate='90' data-scale='3' id='media-query'>
+      <div class='step' data-x='1250' data-y='-1500' data-z='750' data-rotate='90' data-scale='3' id='media-query'>
         <h2>What are media queries?</h2>
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target='blank'>Media queries</a> are CSS statements that facilitate applying CSS conditionally to elements. Device properties like viewport width, orientation, number of colours the device can display and type of device can be accessed through these queries and used to apply CSS rules conditionally.</p>
       </div>
 
-      <div class='step' data-x='1500' data-y='-1500' data-rotate='50' id='simple-media-query'>
+      <div class='step' data-x='2000' data-y='-1500' data-z='750' id='simple-media-query'>
         <h2>A simple media query</h2>
 <pre><code>@media (min-width: 700px) {
   p { color: red; }
@@ -171,7 +194,7 @@
         A great resource to stay abreast with the latest work done in RWD, and for some inspiration for your project.
       </div>
 
-      <div class='step text-left' data-x='6000' data-y='-1500' data-rotate='50' data-z='1000' id='handling-images'>
+      <div class='step text-left' data-x='6000' data-y='-1500' data-rotate='50' id='handling-images'>
         <h2>Handling images</h2>
         <ul>
           <li><strong>picture</strong> element specifies a way to load images according to viewport width.</li>
@@ -183,7 +206,7 @@
         </ul>
       </div>
 
-      <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='50' id='picture'>
+      <div class='step text-left' data-x='7500' data-y='-1500' data-rotate='100' id='picture'>
         <h2><code>picture</code> element's syntax</h2>
 <pre>&lt;picture width="500"  height="500"&gt;
   &lt;source  media="(min-width: 1000px)" src="large.jpg"&gt;
@@ -195,23 +218,27 @@
         <small>This is a work in progress and not currently supported in all browsers.</small>
       </div>
 
-      <div class='step' data-x='8250' data-y='-1500' id='srcset'>
-        <h2>The <code>srcset</code> attribute</h2>
-        <small>This is a work in progress and not currently supported in all browsers.</small>
+      <div class='step text-left' data-x='8250' data-y='-1500' data-rotate='150' id='srcset'>
+        <h2>The <a href='http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/' target='blank'><code>srcset</code></a> attribute</h2>
+<pre><code class='small-font'>&lt;h1&gt;&lt;img alt="The Breakfast Combo"
+  src="banner.jpeg"
+  srcset="banner-HD.jpeg 2x, banner-phone.jpeg 100w, banner-phone-HD.jpeg 100w 2x"&gt;&lt;/h1&gt;</code>
+</pre>
+        <small>Only WebKit has implemented this attribute at the time of this writing. Polyfills such as <a href='https://github.com/borismus/srcset-polyfill' target='blank'>this</a> can be used for compatibility accross major browsers.</small>
       </div>
 
-      <div class='step' data-x='9000' data-y='-1500' data-rotate='50' data-scale='3' id='thank-you'>
-        Thank you!
-      </div>
-
-      <div class='step' data-x = '-1500' data-y='-3000' data-scale='3' id='caution'>
+      <div class='step' data-x = '9000' data-y='-1500' data-scale='3' id='caution'>
         <h2>Word of caution</h2>
-        <p>RWD is not a replacement for native mobile apps currently. Facebook and Linkedin regretted preferring RWD over native mobile apps. Browser based apps are not as high performant as native apps, and do not get access to device's native APIs. But if your app doesn't need them, well, who cares! Marginal performance is the tradeoff made to target large user base with RWD.</p>
+        <p>RWD is not a replacement for native mobile apps currently. <a href='http://mashable.com/2012/09/11/html5-biggest-mistake/' target='blank'>Facebook</a> and <a href='http://venturebeat.com/2013/04/17/linkedin-mobile-web-breakup/' target='blank'>Linkedin</a> regretted preferring RWD over native mobile apps. Browser based apps are not as high performant as native apps, and do not get access to device's native APIs. But if your app doesn't need them, well, who cares! Marginal performance is the tradeoff to target large user base with RWD.</p>
       </div>
 
       <div class='step' data-x = '0' data-y='-3000' data-scale='3' id='examples'>
         <h2>Examples</h2>
         <a href="http://cdpn.io/xpsFD" target='blank'>A simple responsive grid.</a>
+      </div>
+
+      <div class='step' data-x='0' data-y='-1500' data-rotate='50' data-scale='3' id='thank-you'>
+        Thank you!
       </div>
     </div>
 
@@ -222,24 +249,6 @@
 
     <script>
       $( function( $ ) {
-        // $( 'nav > a' ).click( function() {
-        //   if ( $( 'nav ul' ).hasClass( 'hidden' )) {
-        //     // Show menu
-        //     $( 'nav li a' ).css({
-        //       'display': 'block'
-        //     });
-        //     $( 'nav ul' ).removeClass( 'hidden' );
-        //     $( 'nav > a' ).text( '-' );
-        //   }
-        //   else {
-        //     // Hide menu
-        //     $( 'nav li a' ).css({
-        //       'display': 'none'
-        //     });
-        //     $( 'nav ul' ).addClass( 'hidden' );
-        //     $( 'nav > a' ).text( '+' );
-        //   }
-        // });  // End 'nav > a' click.
 
         $( '.aside-left > a' ).click( function() {
           // Code for menu handle.
