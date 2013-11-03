@@ -45,12 +45,6 @@ var SampleApp = function() {
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
         self.zcache['/assets/js/impress.js'] = fs.readFileSync('assets/js/impress.js');
-        self.zcache['/assets/css/font-awesome.min.css'] = fs.readFileSync('assets/css/font-awesome.min.css');
-        self.zcache['/assets/font/fontawesome-webfont.eot'] = fs.readFileSync('assets/font/fontawesome-webfont.eot');
-        self.zcache['/assets/font/fontawesome-webfont.eot'] = fs.readFileSync('assets/font/fontawesome-webfont.eot');
-        self.zcache['/assets/font/fontawesome-webfont.woff'] = fs.readFileSync('assets/font/fontawesome-webfont.woff');
-        self.zcache['/assets/font/fontawesome-webfont.ttf'] = fs.readFileSync('assets/font/fontawesome-webfont.ttf');
-        self.zcache['/assets/font/fontawesome-webfont.svg'] = fs.readFileSync('assets/font/fontawesome-webfont.svg');
     };
 
 
@@ -121,12 +115,6 @@ var SampleApp = function() {
             res.send(self.cache_get( '/assets/js/impress.js' ));
         }
         self.routes['/assets/js/impress.js'] = function( req, res ) {res.send(self.cache_get( '/assets/js/impress.js' ));}
-        self.routes['/assets/css/font-awesome.min.css'] = function( req, res ) {res.send(self.cache_get( '/assets/css/font-awesome.min.css' ));}
-        self.routes['/assets/font/fontawesome-webfont.eot'] = function( req, res ) {res.send(self.cache_get( '/assets/font/fontawesome-webfont.eot' ));}
-        //self.routes['/assets/font/fontawesome-webfont.eot'] = function( req, res ) {res.send(self.cache_get( '/assets/font/fontawesome-webfont.eot' ));}
-        self.routes['/assets/font/fontawesome-webfont.woff'] = function( req, res ) {res.send(self.cache_get( '/assets/font/fontawesome-webfont.woff' ));}
-        self.routes['/assets/font/fontawesome-webfont.ttf'] = function( req, res ) {res.send(self.cache_get( '/assets/font/fontawesome-webfont.ttf' ));}
-        self.routes['/assets/font/fontawesome-webfont.svg'] = function( req, res ) {res.send(self.cache_get( '/assets/font/fontawesome-webfont.svg' ));}
     };
 
 
