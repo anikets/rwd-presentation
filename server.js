@@ -40,10 +40,12 @@ var SampleApp = function() {
     self.populateCache = function() {
         if (typeof self.zcache === "undefined") {
             self.zcache = { 'index.html': '' };
+            self.zcache = { 'plugin.html': '' };
         }
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
+        self.zcache['plugin.html'] = fs.readFileSync('./plugin.html');
         self.zcache['/assets/js/impress.js'] = fs.readFileSync('assets/js/impress.js');
     };
 
@@ -111,10 +113,16 @@ var SampleApp = function() {
             res.send(self.cache_get('index.html') );
         };
 
+        self.routes['/plugin'] = function(req, res) {
+            res.setHeader('Content-Type', 'text/html');
+            res.send(self.cache_get('plugin.html') );
+        };
+
         self.routes['/assets/js/impress.js'] = function( req, res ) {
             res.send(self.cache_get( '/assets/js/impress.js' ));
         }
         self.routes['/assets/js/impress.js'] = function( req, res ) {res.send(self.cache_get( '/assets/js/impress.js' ));}
+
     };
 
 
@@ -125,6 +133,7 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express();
+        self.app.post( '/simple-ajax-request', function( req, res ) { res.send( 'All good!' );})
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {

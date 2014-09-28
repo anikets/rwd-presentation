@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simple JS Plugin</title>
+  </head>
+
+  <body>
+    <input type='text' value='hello' id='text-input' />
+    <script>
+      // Type out sample code for creating a JavaScript plugin that gets the value of
+      // a field, calls the server and then displays the returned value in a popup.
+
+      function plugin( value ) {
+        // Create HTTP Request object.
+        var httpRequest;
+        if ( window.XMLHttpRequest ) { // Mozilla, Safari, ...
+          httpRequest = new XMLHttpRequest();
+        } else if ( window.ActiveXObject ) { // IE 8 and older
+          try {
+            httpRequest = new ActiveXObject( 'Msxml2.XMLHTTP' );
+          } 
+          catch (e) {
+            try {
+              httpRequest = new ActiveXObject( 'Microsoft.XMLHTTP' );
+            } 
+            catch (e) {}
+          }
+        }
+        if ( !httpRequest ) {
+          alert('Giving up :( Cannot create an XMLHTTP instance');
+          return false;
+        }
+
+
+        // Function to be called after request state changes.
+        var requestStateChange = function() {
+          if ( httpRequest.readyState === 4 ) {
+            if ( httpRequest.status === 200 ) {
+              alert( 'Request successful! Server response:' + httpRequest.responseText );
+            } else {
+              alert( 'There was a problem with the request.' );
+            }
+          }
+        };
+   
+        httpRequest.onreadystatechange = requestStateChange;
+        httpRequest.open('POST', window.location.origin + '/simple-ajax-request', true);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send( '&val=' + value );
+      }
+
+      window.addEventListener("load", function load(event){
+        var requiredValue = document.getElementById( 'text-input' ).value;
+        plugin( requiredValue );
+      },false);
+
+    </script>
+  </body>
+</html>
